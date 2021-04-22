@@ -1,0 +1,72 @@
+﻿
+@{
+    ViewBag.Title = "Kullanicilar";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+@model IEnumerable<ticaret.Models.login>
+
+<section class="panel">
+    <header class="panel-heading">
+        Kullanıcılar
+    </header>
+    <div class="panel-body">
+        <div class="adv-table editable-table ">
+            <br />
+            <div class="clearfix">
+                <div class="btn-group">
+                    <a href="/Admin/KullaniciEkle" id="editable-sample_new" class="btn btn-success">
+                        Yeni Kullanıcı <i class="icon-plus"></i>
+                    </a>
+                </div>
+            </div>
+            <br />
+            <div class="space15"></div>
+            <table class="table table-striped table-hover table-bordered" id="editable-sample">
+                <thead>
+                    <tr>
+                        <th>İD</th>
+                        <th>İsim</th>
+                        <th>Soyisim</th>
+                        <th>Tc</th>
+                        <th>E-Posta</th>
+
+
+                        <th>Telefon</th>
+                        <th>Onay Kodu</th>
+                        <th>Kullanıcı_Adı</th>
+                        <th>Sifre</th>
+                        <th>Yetki-İd</th>
+                        <th>Güncelle</th>
+                        <th>Sil</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var urun in Model)
+                    {
+                    <tr class="">
+                        <td>@urun.id</td>
+                        <td>@urun.isim</td>
+                        <td>@urun.soyisim</td>
+                        <td>@urun.tc</td>
+                        <td>@urun.email</td>
+                        <td>@urun.tel</td>
+                        <td>@urun.dogrulama</td>
+                        <td>@urun.kullanici_adi</td>
+                        <td>@urun.sifre</td>
+                        <td>@urun.yetki</td>
+
+
+
+
+                        <td><a class="edit" href="/Admin/KullaniciGuncelle/@urun.id"><i class="icon-pencil"></i></a></td>
+                        <td><a class="delete" href="/Admin/KullaniciSil/@urun.id"><i class="icon-trash"></i></a></td>
+                    </tr>
+
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+

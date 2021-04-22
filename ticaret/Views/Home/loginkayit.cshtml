@@ -1,0 +1,42 @@
+﻿@model ticaret.Models.login
+@{
+    ViewBag.Title = "loginkayit";
+    Layout = "~/Views/Shared/SiteLayout.cshtml";
+}
+
+
+<div class="content">
+    <div class="container">
+        <div class="col-md-6">
+            <div class="site-title"><div class="site-inside"><span>Login / Register</span></div></div>
+            <div class="row">
+                <form class="register-form">
+                    <h3>Register</h3>
+                    <p>İsim</p>
+                    @Html.TextBoxFor(m => m.isim, new { @class = "form-control", @id = "" }) <br />
+                    <p>Soyisim</p>
+                    @Html.TextBoxFor(m => m.soyisim, new { @class = "form-control", @id = "" }) <br />
+                    <p>TC</p>
+                    @Html.TextBoxFor(m => m.tc, new { @class = "form-control", @id = "" }) <br />
+                    <p>E-mail</p>
+                    @Html.TextBoxFor(m => m.email, new { @class = "form-control", @id = "" }) <br />
+                    <p>Telefon</p>
+                    @Html.TextBoxFor(m => m.tel, new { @class = "form-control", @id = "" }) <br />
+                    <p>Username</p>
+                    @Html.TextBoxFor(m => m.kullanici_adi, new { @class = "form-control", @id = "" }) <br />
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <p>Password</p>
+                            @Html.TextBoxFor(m => m.sifre, new { @class = "form-control", @id = "" }) <br />
+                        </div>
+
+                    </div>
+                    <button class="btn btn-success btn-lg" type="submit" name="Command" value="giris">Kaydet</button>
+                    @ViewBag.donus
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+       

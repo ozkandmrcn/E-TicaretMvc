@@ -1,0 +1,32 @@
+﻿@model ticaret.Models.login
+@{
+    ViewBag.Title = "login";
+    Layout = "~/Views/Shared/SiteLayout.cshtml";
+}
+
+<div class="content">
+    <div class="container">
+        <div class="site-title"><div class="site-inside"><span>Login / Register</span></div></div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="forms-separation">
+                    <div class="login-form-box">
+                        <form class="login-form">
+                            <h3>login now</h3>
+                            <p>Username or e-mail</p>
+                            @Html.TextBoxFor(m => m.kullanici_adi, new { @class = "form-control", @id = "" }) <br />
+                            <p>Password</p>
+                            @Html.TextBoxFor(m => m.sifre, new { @class = "form-control", @id = "" }) <br />
+                            <button class="btn btn-success btn-lg" type="submit" name="Command" value="giris">Giriş Yap</button>
+                            <a href="#" class="lost-password">Lost password</a>
+                            <a href="/home/loginkayit" class="lost-password">Kayıt olmak tıklayınız.</a>
+                            @ViewBag.donus
+                        </form>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</div>
+

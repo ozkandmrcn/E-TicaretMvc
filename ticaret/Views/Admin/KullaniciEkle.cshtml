@@ -1,0 +1,79 @@
+﻿
+@{
+    ViewBag.Title = "KullaniciEkle";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+@model ticaret.Models.login
+
+<div class="row">
+    <div class="col-lg-12">
+        <section class="panel">
+            <header class="panel-heading">
+                Kullanıcı Ekle
+            </header>
+            <div class="panel-body">
+                <form action="/Admin/KullaniciEkle" class="form-horizontal tasi-form" enctype="multipart/form-data" method="post">
+                    <div class="form-group">
+                        <label class="col-sm-2 col-sm-2 control-label">isim</label>
+                        <div class="col-sm-10">
+                            @Html.TextBoxFor(m => m.isim, new { @class = "form-control", @id = "" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 col-sm-2 control-label">Soyisim</label>
+                        <div class="col-sm-10">
+                            @Html.TextBoxFor(m => m.soyisim, new { @class = "form-control", @id = "" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 col-sm-2 control-label">T.C</label>
+                        <div class="col-sm-10">
+                            @Html.TextBoxFor(m => m.tc, new { @class = "form-control", @id = "" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 col-sm-2 control-label">E-Posta</label>
+                        <div class="col-sm-10">
+                            @Html.TextBoxFor(m => m.email, new { @class = "form-control", @id = "" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 col-sm-2 control-label">Telefon</label>
+                        <div class="col-sm-10">
+                            @Html.TextBoxFor(m => m.tel, new { @class = "form-control", @id = "" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 col-sm-2 control-label">Onay Kodu</label>
+                        <div class="col-sm-10">
+                            @Html.TextBoxFor(m => m.dogrulama, new { @class = "form-control", @id = "" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 col-sm-2 control-label">Kullanıcı Adı</label>
+                        <div class="col-sm-10">
+                            @Html.TextBoxFor(m => m.kullanici_adi, new { @class = "form-control", @id = "" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 col-sm-2 control-label">Sifre</label>
+                        <div class="col-sm-10">
+                            @Html.TextBoxFor(m => m.sifre, new { @class = "form-control", @id = "" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 col-sm-2 control-label">Yetki-İd</label>
+                        <div class="col-sm-10">
+                            @Html.TextBoxFor(m => m.yetki, new { @class = "form-control", @id = "" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-lg-offset-2 col-lg-10">
+                            <button class="btn btn-danger" type="submit">Kaydet</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </div>
+</div>

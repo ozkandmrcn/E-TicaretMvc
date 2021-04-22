@@ -1,0 +1,65 @@
+﻿
+@{
+    ViewBag.Title = "odeme";
+    Layout = "~/Views/Shared/SiteLayout.cshtml";
+}
+
+@model IEnumerable<ticaret.Models.urunler>
+
+<div class="content">
+    <div class="container">
+        <div class="col-md-12">
+            <div class="order-title">Your order</div>
+            <div class="row">
+                <div class="col-md-9">
+                    <ul class="checkout-info">
+                        <li class="checkout-info-1">Product</li>
+                        <li class="checkout-info-2">Total</li>
+                    </ul>
+
+                    <div class="checkout-info-box">
+                        <!-- REPEAT PRODUCT -->
+                        @foreach (var item in Model)
+                        {
+                            <ul class="checkout-product">
+                                <li class="checkout-product-1">@item.Adi</li>
+                                <li class="checkout-product-2">@item.Fiyat</li>
+                            </ul>
+                        }
+                        <!-- REPEAT PRODUCT -->
+
+
+
+
+                        <ul class="checkout-product o-last">
+                            <li class="checkout-product-1">Shipping</li>
+                            <li class="checkout-product-2">Free shipping</li>
+                        </ul>
+
+
+                        <ul class="checkout-product last">
+                            @foreach (var item in Model)
+                            {
+                                <li class="checkout-product-1">Toplam Fiyat</li>
+                                <li class="checkout-product-2">@item.Fiyat</li>
+                            }
+                        </ul>
+
+                        <!-- CART DETAILS -->
+                    </div>
+
+                </div>
+                <div class="col-md-3">
+                    <ul class="payment-method">
+                        <li><label><input type="radio" id="payment_method_bacs" class="input-radio" name="payment_method" value="bacs" checked="checked"> Kapıda Ödeme</label></li>
+
+                    </ul>
+                    @foreach (var item in Model)
+                    {
+                        <a href="/home/siparis/@item.Id" class="button-6">Siparişi Tamamla</a>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

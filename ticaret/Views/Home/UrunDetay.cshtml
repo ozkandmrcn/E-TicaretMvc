@@ -1,0 +1,145 @@
+﻿
+@{
+    ViewBag.Title = "UrunDetay";
+    Layout = "~/Views/Shared/SiteLayout.cshtml";
+}
+
+@model IEnumerable<ticaret.Models.urunler>
+
+
+@section head{
+    <script src="~/Content/Zeon/js/jquery-1.10.0.min.js"></script>
+    <script>
+    $(document).ready(function myfunction() {
+            $(".sepeteAt").click(function myfunction() {
+                var uid = $(this).attr("data-id");
+                $.ajax({
+                    type: "GET",
+                    url: "/Home/SepeteEkle",
+                    data: { id: uid },
+                    success: function myfunction() {
+                        $.ajax({
+                            type: "GET",
+                            url: "/Home/MiniSepetWidget",
+                            success: function VeriGetir(veri) {
+                                $(".cart-all").html('');
+                                $(".cart-all").html(veri);
+                            }
+
+                        })
+                    },
+                    error: function myfunction() {
+                        alert("Hata : Ürün Sepete Eklenemedi.");
+                    }
+                })
+            })
+        })</script>
+}
+<div class="product-one">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-md-6">
+
+                <div class="the-slider product-big-image" data-tesla-plugin="slider" data-tesla-item=".slide" data-tesla-next=".product-image-arrows-right" data-tesla-prev=".product-image-arrows-left" data-tesla-container=".slide-wrapper">
+                    <ul class="product-image-arrows">
+                        <li class="product-image-arrows-left"><i class="icon-517" title="left"></i></li>
+                        <li class="product-image-arrows-right"><i class="icon-501" title="right"></i></li>
+                    </ul>
+
+
+
+                    <ul class="slide-wrapper">
+                        @foreach (var item in Model)
+                        {
+                            <li class="slide"><img src="~/Content/UrunResim/@item.resim" alt="@item.Adi" /></li>
+                        }
+                    </ul>
+                    <div class="row">
+                        <ul class="the-bullets-dots" data-tesla-plugin="bullets">
+                            @foreach (var item in Model)
+                            {
+                                <li><div class="col-md-2 col-xs-2"><img src="~/Content/UrunResim/@item.resim" alt="@item.Adi" /></div></li>
+                            }
+
+
+
+
+                        </ul>
+
+
+                    </div>
+                </div>
+            </div>
+           
+            <div class="col-md-6">
+                @foreach (var item in Model)
+                {
+                    <h2>@item.Adi</h2>
+                }
+
+
+
+                <div class="sort-dropdown">
+                    @foreach (var item in Model)
+                    {
+                        <span> <i class="icon-515" title="515">@item.Adi</i></span>
+                    }
+                    <ul></ul>
+                </div>
+
+                <div class="clear"></div>
+                <div class="quantity">
+                    @foreach (var item in Model)
+                    {
+                        <input type="button" value="-" class="minus">
+                        <input type="number" step="1" min="1" name="Adet" value="1" title="Qty" class="input-text qty text">
+                        <input type="button" value="+" class="plus">
+                    }
+                    </div>
+                <hr />
+
+                <div class="row">
+
+
+
+                    <div class="col-md-6">
+                        @foreach (var item in Model)
+                        {
+                            <div class="product-price">Fiyat:@item.Fiyat</div>
+                        }
+                    </div>
+                    <div class="col-md-6">
+                        @foreach (var urun in Model)
+                        {
+                            <a href="/Home/Card/@urun.Id" class="button-2 sepeteAt" data-id="">Sepete Ekle</a>
+                        }
+                        </div>
+                </div>
+
+                <ul class="nav nav-tabs">
+                    <li class="active"><a href="#description" data-toggle="tab">Açıklama</a></li>
+                </ul>
+                <div class="tab-content">
+                    <div class="tab-pane active" id="description">
+                        @foreach (var item in Model)
+                        {
+                            <p>
+                                @item.ozellık
+                            </p>
+                        }
+                        <ul class="social-share">
+                            <li><span>Paylaş</span></li>
+                            <li><a href="#"><i class="icon-160" title="161"></i></a></li>
+                            <li><a href="#"><i class="icon-138" title="161"></i></a></li>
+                            <li><a href="#"><i class="icon-106" title="161"></i></a></li>
+                            <li><a href="#"><i class="icon-169" title="161"></i></a></li>
+                            <li><a href="#"><i class="icon-163" title="161"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+            </div>
+        </div>
+

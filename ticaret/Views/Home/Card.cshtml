@@ -1,0 +1,98 @@
+﻿
+@{
+    ViewBag.Title = "Card";
+    Layout = "~/Views/Shared/SiteLayout.cshtml";
+}
+@model IEnumerable<ticaret.Models.urunler>
+
+<div class="content">
+    <div class="container">
+        <h2>Shopping cart</h2>
+
+        <div class="shopping-cart">
+            <div class="shopping-cart-products">
+                <ul class="shopping-product-detail">
+                    <li class="shopping-1">Product image</li>
+                    <li class="shopping-2">Product name</li>
+                    <li class="shopping-3">Description</li>
+                    <li class="shopping-4">Quantity</li>
+                    <li class="shopping-5">Unit price</li>
+                    <li class="shopping-6">Total</li>
+                </ul>
+
+                <!-- REPEAT BY PRODUCT -->
+                <ul class="shopping-product-detail">
+                    <li class="shopping-1">
+                        @foreach (var item in Model)
+                        {
+                            <img src="~/Content/UrunResim/@item.resim" alt="product image" />
+                        }
+                    </li>
+                    <li class="shopping-2">
+                        @foreach (var item in Model)
+                        {
+                            <a href="#">@item.Adi</a>
+                        }
+
+                    </li>
+                    <li class="shopping-3">
+                        <p>Colour - blue</p>
+                        <p>Size US (S)</p>
+                    </li>
+                    @foreach (var item in Model)
+                    {
+                        <li class="shopping-4">
+                            @item.adet
+                            <input type="number" step="1" min="1" name="Adet" value="" title="Qty" class="input-text qty text">
+
+                        </li>
+                    }
+                    @foreach (var item in Model)
+                    {
+                        <li class="shopping-5">
+                            @item.Fiyat
+                        </li>
+                    }
+                    @foreach (var item in Model)
+                    {
+                        <li class="shopping-6">
+                            @item.Fiyat*@item.adet <button>x</button>
+                        </li>
+                    }
+                </ul>
+                <!-- REPEAT BY PRODUCT -->
+                <!-- REPEAT BY PRODUCT -->
+                <!-- REPEAT BY PRODUCT -->
+                <!-- REPEAT BY PRODUCT -->
+                <!-- REPEAT BY PRODUCT -->
+
+            </div>
+
+            <div class="row">
+                <div class="col-md-3">
+                    @foreach (var urun in Model)
+                    {
+                        <a href="/Home/odeme/@urun.Id" class="button-7">Alışverişe Devam Et</a>
+                    }
+
+                </div>
+                <div class="col-md-5">
+                    <div class="coupon">
+                        <input class="input-line" type="text" name="coupon" />
+                        <button class="button-6">Apply</button>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="checkout-total">
+                        <p>Sub-total : $ 120</p>
+                        <p>TAX Total : $ 20</p>
+                        <p>Shipment Fee : $ 0.00</p>
+                        <hr />
+                        <p>Total : $ 120</p>
+                        <button class="button-6">Checkout</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

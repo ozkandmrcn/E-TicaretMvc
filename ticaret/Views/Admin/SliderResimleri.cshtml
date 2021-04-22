@@ -1,0 +1,16 @@
+﻿
+@{
+    ViewBag.Title = "SliderResimleri";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+@using (Html.BeginForm("SliderResimleri", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @TempData["result"]
+    <div>
+        <input type="file" name="file" class="button" />
+        <input type="submit" value="Gönder" class="button" />
+    </div>
+}
+
+

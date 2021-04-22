@@ -1,0 +1,30 @@
+﻿@model ticaret.Models.login
+
+@{
+    ViewBag.Title = "KullaniciGuncelle";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+@using (@Html.BeginForm("KullaniciGuncelle", "admin", FormMethod.Post, new { @class = "form-horizontal row-border" }))
+{
+    @Html.TextBoxFor(m => m.id, new { @class = "form-control", @id = "" })
+    @Html.TextBoxFor(m => m.isim, new { @class = "form-control", @id = "" })
+    @Html.TextBoxFor(m => m.soyisim, new { @class = "form-control", @id = "" })
+    @Html.TextBoxFor(m => m.tc, new { @class = "form-control", @id = "" })
+    @Html.TextBoxFor(m => m.email, new { @class = "form-control", @id = "" })
+
+    @Html.TextBoxFor(m => m.tel, new { @class = "form-control", @id = "" })
+    @Html.TextBoxFor(m => m.dogrulama, new { @class = "form-control", @id = "" })
+    @Html.TextBoxFor(m => m.kullanici_adi, new { @class = "form-control", @id = "" })
+    @Html.TextBoxFor(m => m.sifre, new { @class = "form-control", @id = "" })
+    @Html.TextBoxFor(m => m.yetki, new { @class = "form-control", @id = "" })
+
+    <hr />
+    <br />
+
+    //<button class="btn btn-success btn-lg" type="submit" name="Command" value="yeni_kayit">Kaydet</button>
+    <button class="btn btn-warning btn-lg" type="submit" name="Command" value="guncelle">Güncelle</button>
+    <button class="btn btn-danger btn-lg" type="submit" name="Command" value="sil">Sil</button>
+}
+
+

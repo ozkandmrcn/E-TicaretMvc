@@ -1,0 +1,23 @@
+﻿@model ticaret.Models.urunler
+@{
+    ViewBag.Title = "UrunGuncelle";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+@using (@Html.BeginForm("UrunGuncelle", "admin", FormMethod.Post, new { @class = "form-horizontal row-border" }))
+{
+    @Html.TextBoxFor(m => m.Id, new { @class = "form-control", @id = "" })
+    @Html.TextBoxFor(m => m.Adi, new { @class = "form-control", @id = "" })
+    @Html.TextBoxFor(m => m.ozellık, new { @class = "form-control", @id = "" })
+    @Html.TextBoxFor(m => m.Fiyat, new { @class = "form-control", @id = "" })
+    @Html.TextBoxFor(m => m.beden, new { @class = "form-control", @id = "" })
+    
+    <hr />
+    <br />
+
+    //<button class="btn btn-success btn-lg" type="submit" name="Command" value="yeni_kayit">Kaydet</button>
+    <button class="btn btn-warning btn-lg" type="submit" name="Command" value="guncelle">guncelle</button>
+    <button class="btn btn-danger btn-lg" type="submit" name="Command" value="sil">sil</button>
+
+
+}

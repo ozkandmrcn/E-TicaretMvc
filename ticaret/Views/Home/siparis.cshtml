@@ -1,0 +1,33 @@
+﻿@model ticaret.Models.siparis
+
+@{
+    ViewBag.Title = "siparis";
+    Layout = "~/Views/Shared/SiteLayout.cshtml";
+}
+
+<div class="content">
+    <div class="container">
+        <div class="col-md-6">
+            <div class="site-title"><div class="site-inside"><span>Boş Alanları Doldur</span></div></div>
+            <div class="row">
+                <form class="register-form">
+                    <h3>Alıcı Bilgileri</h3>
+                    <p>İsim-Soyisim</p>
+                    @Html.TextBoxFor(m => m.adsoyad, new { @class = "form-control", @id = "" }) <br />
+                    <p>Adres</p>
+                    @Html.TextBoxFor(m => m.adres, new { @class = "form-control", @id = "" }) <br />
+                    <p>Telefon</p>
+                    @Html.TextBoxFor(m => m.telefon, new { @class = "form-control", @id = "" }) <br />
+
+
+
+
+</div>
+            <button class="btn btn-success btn-lg" type="submit" name="Command" value="giris">Kaydet</button>
+            @ViewBag.donus
+            </form>
+        </div>
+    </div>
+</div>
+</div>
+
